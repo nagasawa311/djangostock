@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+
+{%block content%}
+<br><br>
+{% if ticker %}
+	{{ticker}}
+{% endif %}
+{%if api%}
+	{% if api == "Error..." %}
+		<p>there was something wrong with here</p>
+	{%else%}
+		<h1>{{api.companyName}}</h1><br>
+		<p>Stock Price:{{api.latestPrice}}</p>
+		<p>Primary Excange:{{api.primaryExchange}}</p>
+		<p>Open:{{api.open}}</p>
+		<p>Close:{{api.close}}</p>
+		<p>week 52 High:{{api.week52High}}</p>
+		<p>week 52 Low:{{api.week52Low}}</p>
+	{%endif%}
+{%endif%}
+{%endblock%}
